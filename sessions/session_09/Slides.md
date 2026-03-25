@@ -364,17 +364,15 @@ Container orchestration tools...
 #### **Docker Swarm Mode**
 - Comes with Docker by default
 - The easiest to use from all the alternatives
+- Development has slowed, but it's [not deprecated](https://www.mirantis.com/blog/swarm-is-here-to-stay-and-keeps-getting-better-in-security-and-ease-of-operations/) and is supported through at least 2030
+- We use it in this course because it's the simplest way to learn orchestration concepts
 
-
- #### **Kubernetes** 
+#### **Kubernetes**
+  * The industry standard — [82% of container users run it in production](https://thedecipherist.com/articles/docker_swarm_vs_kubernetes/)
   * Originally developed at Google
-  * We don't ask you to use it because we're nice :) ([see hacker news discussion](https://news.ycombinator.com/item?id=26271470))
+  * Much more powerful, but significantly more complex ([see hacker news discussion](https://news.ycombinator.com/item?id=26271470))
 
-#### OpenShift
-- Developed by Red Hat as an enterprise Kubernetes distribution
-- Provides advanced networking features and built-in monitoring tools
-
- ... and [many more](https://devopscube.com/docker-container-clustering-tools/)
+Others: OpenShift (Red Hat's enterprise Kubernetes), Nomad (HashiCorp), and [many more](https://devopscube.com/docker-container-clustering-tools/)
 
   
 
@@ -392,7 +390,7 @@ The following [concepts are essential for understanding Docker Swarm mode](https
 4. **Task** = an instance of a process
 5. **Routing Mesh** = network overlay mechanism
 
-They have equivalents in other orchestration environments.
+These concepts have equivalents in other orchestration environments — the names will differ (e.g. Kubernetes calls services "Deployments," tasks "Pods") and there will be many more concepts, but the core ideas are the same.
 
 
 #### 1. Manager Node
@@ -458,8 +456,6 @@ Good examples of global service? A **log shipper** or a **monitoring container**
 - The atomic scheduling unit of swarm
 - Carries **a container and the commands to run inside it**
 - Manager nodes assign tasks to worker nodes according to the number of replicas set in the service scale
- 
-![400](images/service-task-container.png)
 
 
 
@@ -591,7 +587,7 @@ You **add a little bit of extra information** in the `docker-compose.yml` under 
 - update strategies, restart strategies
 - [etc](https://docs.docker.com/compose/compose-file/deploy/).
 
-Example: 
+Example:
 ```
   api:
     image: itudevops/go-minitwit-api:TAG
@@ -606,6 +602,21 @@ Example:
           - "node.hostname!=dbvm"
           - "node.label==frankfurt"
 ```
+
+## `docker stack` — deploying a compose file to a swarm
+
+Instead of `docker compose up`, in a swarm you use `docker stack`:
+
+```bash
+$ docker stack deploy -c docker-compose.yml myapp
+```
+
+Key differences from `docker compose`:
+- `docker stack` **ignores** `build:` directives — images must already be built and pushed to a registry
+- `docker stack` **reads** the `deploy:` key — `docker compose` ignores it
+- Stacks are managed as a unit: `docker stack ls`, `docker stack services myapp`, `docker stack rm myapp`
+
+See: [The Difference Between Docker Compose And Docker Stack](https://vsupalov.com/difference-docker-compose-and-docker-stack/)
 
 
 
@@ -627,5 +638,5 @@ Practical: [**Scale your API**](README_TASKS.md) in preparation for the **future
 
 # History
 
-2025, **TODO**: add discussion about docker stack!
-* [The Difference Between Docker Compose And Docker Stack](https://vsupalov.com/difference-docker-compose-and-docker-stack/) - brief explanation on the differences between the way swarm and compose interpret a `docker-compose.yml` file
+2025, added docker stack discussion
+2026, added availability stories (Ticketmaster, Twitter, Facebook, GitLab), stateless services section, limitations of load balancing bridge
