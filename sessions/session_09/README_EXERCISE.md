@@ -321,13 +321,3 @@ Note:
 ### Next step: deploying your services with `docker stack`
 
 Now that you have a swarm running, the next step is deploying your services onto it. For your projects, you'll add a `deploy` key to your existing `docker-compose.yml` and use `docker stack deploy`. See the [lecture slides](./Slides.md#how-to-migrate-from-docker-compose-to-docker-swarm) for details.
-
-
-
-
-
-
-
-
-
-	

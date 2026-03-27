@@ -546,7 +546,7 @@ If you go with JWT for auth + database for Latest ID, you don't need Redis at al
 
 # Upgrading replicated services
 
-Two possible upgrade strategies: 
+Two main upgrade strategies: 
 
 1. Blue-Green
 2. Rolling Updates
@@ -602,6 +602,20 @@ Two `update-order` options: (stop-first|start-first)
 
 # Practicals
 
+## Scaling in practice: you can go quite far without orchestration
+
+**Horizontal scaling can be more complicated than vertical** (see [hacker news thread on k8s](https://news.ycombinator.com/item?id=26271470))
+
+**Because Google and Facebook need it**...
+- ... that's why probably you don't
+- ... some of these technologies can be quite complicated (e.g. k8s — aims to be a **generalized solution** to distributed systems design that ... also works at Google!)
+
+- [Brief History of Scaling at LinkedIn](https://engineering.linkedin.com/architecture/brief-history-scaling-linkedin): *"An easy fix we did was classic vertical scaling ... While that bought some time, we needed to scale further"*. Started vertical, had to go horizontal.
+- Thibault Duplessis on the architecture of Lichess — no orchestration, still works.
+- StackOverflow does not use horizontal scaling ([podcast](https://hanselminutes.com/847/engineering-stack-overflow-with-roberta-arcoverde), [tweet](images/StackOverflowInfraTweet.png)). Still works.
+
+![400](images/StackOverflowInfraTweet.png)
+
 ## How to migrate from docker-compose to docker swarm?
 
 In the [exercise](./README_EXERCISE.md) you'll create the swarm infrastructure — provisioning nodes, initializing the swarm, joining workers. Here we look at the next step: how to deploy your services onto that swarm using your existing compose file.
@@ -647,20 +661,6 @@ See: [The Difference Between Docker Compose And Docker Stack](https://vsupalov.c
 
 
 
-## Scaling in practice: you can go quite far without orchestration
-
-**Horizontal scaling can be more complicated than vertical** (see [hacker news thread on k8s](https://news.ycombinator.com/item?id=26271470))
-
-**Because Google and Facebook need it**...
-- ... that's why probably you don't
-- ... some of these technologies can be quite complicated (e.g. k8s — aims to be a **generalized solution** to distributed systems design that ... also works at Google!)
-
-- [Brief History of Scaling at LinkedIn](https://engineering.linkedin.com/architecture/brief-history-scaling-linkedin): *"An easy fix we did was classic vertical scaling ... While that bought some time, we needed to scale further"*. Started vertical, had to go horizontal.
-- Thibault Duplessis on the architecture of Lichess — no orchestration, still works.
-- StackOverflow does not use horizontal scaling ([podcast](https://hanselminutes.com/847/engineering-stack-overflow-with-roberta-arcoverde), [tweet](images/StackOverflowInfraTweet.png)). Still works.
-
-![400](images/StackOverflowInfraTweet.png)
-
 # What Next?
 
 Exercise: [**Swarm creation on DigitalOcean**](./README_EXERCISE.md).
@@ -673,4 +673,4 @@ Practical: [**Scale your API**](README_TASKS.md) in preparation for the **future
 # History
 
 2025, added docker stack discussion
-2026, added availability stories (Ticketmaster, Twitter, Facebook, GitLab), stateless services section, limitations of load balancing bridge
+2026, added availability stories (Ticketmaster, Twitter, Facebook, GitLab), stateless services section, limitations of load balancing bridge, better structure for the whole lecture
