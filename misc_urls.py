@@ -123,9 +123,9 @@ GROUP_URLS = [
         "group o",
         "Rollback and relax",
         # Monitoring URL:
-        "http://ec2-13-60-32-149.eu-north-1.compute.amazonaws.com:3001/dashboards",
+        "http://167.172.111.97:3001/dashboards",
         # Logging URL:
-        "http://ec2-13-60-32-149.eu-north-1.compute.amazonaws.com:3001/d/ad2jj8r/minitwit-logs-dashboard?orgId=1&from=now-6h&to=now&timezone=browser",
+        "http://167.172.111.97:3001/d/ad2jj8r/minitwit-logs-dashboard?orgId=1&from=now-6h&to=now&timezone=browser",
     ],
     [
         "group p",
