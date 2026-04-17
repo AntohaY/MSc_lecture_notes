@@ -16,13 +16,13 @@ mlun@itu.dk
 ## Why does FB need thousands of developers when I could implement a clone with a friend in our spare time? 
 
 
-- Creating a proof-of-concept of Facebook is not that hard. 
 - **With a friend I once implemented  a Facebook clone in our spare time** in parallel with doing our PhDs. 
+- Creating a proof-of-concept of Facebook is not that hard. 
 - Maintaining Facebook itself takes thousands of talented developers working non stop on it. 
-- What is the difference? Where are all those man-hours going?
+- What is the difference? Where are all those man-years going?
 
 
-### Building Dependable Systems Is what is difficult
+### Building dependable systems is what is difficult
 
 My claim is that the reason is that they have built a **dependable** system. 
 
@@ -292,7 +292,7 @@ You can define yourself the levels of:
 
 Or you can reuse existing pre-defined levels. See two examples below.
 
-#### Severity Can Have Many Levels — Not Just Three
+#### Severity can have many levels — not just three
 
 "High / Medium / Low" is a starting point, not the ceiling. Finer scales let you distinguish "annoying" from "career-ending."
 
@@ -300,7 +300,7 @@ cf. Security Risk Management Body of Knowledge
 ![](images/levels_of_severity.png)
 
 
-#### Likelihood Can Also Have More Degrees
+#### Likelihood can also have more degrees
 
 Same idea for probability: {Certain, Likely, Possible, Unlikely, Rare} beats a coarse "probably/maybe/no."
 
@@ -344,7 +344,7 @@ Is hard. And it is usually a little bit too late. So better focus on preventing.
 - Auditing, compliance testing
 
  
-# 10 Practical Advices to Improve Security in DevOps
+# 10 practical advices to improve security in DevOps
 
 *What follows is how to operationalize the OWASP Top 10 in your DevOps workflow. Each advice maps to one or more of the threat categories we just named.*
 
@@ -576,6 +576,10 @@ Log everything. This is the key to being able to detect attacks
 - Practical: [Own security assessment + Hardening](./README_TASKS.md)
 
 - TLS & Certbot: [TLSTutorial](TLSTutorial.md)
+
+# Other Announcements
+
+- Tarik -- DevOps@NetCompany -- guest lecture at 8am on Tuesday in the BSc DevOps course (Room: 2A12-14)
 
 
 # Appendix: a reference catalogue of pen-testing tools
