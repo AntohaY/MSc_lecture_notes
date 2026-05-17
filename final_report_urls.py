@@ -94,6 +94,7 @@ REPORT_URLS = [
         "EastOps",
         # Report Release URL:
         "https://github.com/AntohaY/itu-minitwit/releases/download/9.0.0/MSc_group_p.pdf",
+        "https://github.com/AntohaY/itu-minitwit/archive/refs/tags/9.0.0.zip"
     ],
     [
         "group q",
