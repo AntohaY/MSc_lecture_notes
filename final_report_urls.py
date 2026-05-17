@@ -91,9 +91,9 @@ REPORT_URLS = [
     ],
     [
         "group p",
-        "<name>",
+        "EastOps",
         # Report Release URL:
-        "https://github.com/<gh_id>/<proj_id>/archive/refs/tags/<version_tag>.zip",
+        "https://github.com/AntohaY/itu-minitwit/releases/download/9.0.0/MSc_group_p.pdf",
     ],
     [
         "group q",
